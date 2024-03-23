@@ -87,8 +87,10 @@ DD <- TT
 
 
 #split
-TrainDD <- DD[sample(seq_len(nrow(DD)), size = floor(0.8 * nrow(DD))), ]
-ValidDD <- DD[-sample(seq_len(nrow(DD)), size = floor(0.8 * nrow(DD))), ]
+t <- sample(seq_len(nrow(DD)), size = floor(0.8 * nrow(DD)))
+TrainDD <- DD[t, ]
+ValidDD <- DD[-t, ]
+
 
 y = TrainDD[,1]
 x = TrainDD[,2:ncol(DD), drop =FALSE]
